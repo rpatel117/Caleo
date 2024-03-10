@@ -1,0 +1,14 @@
+.greeting {
+    position: fixed; /* Use fixed or absolute positioning */
+    top: 0; /* Align to the top of the viewport */
+    right: 0; /* Align to the right of the viewport */
+    margin: 10px; /* Add some margin if you want a little space from the viewport edges */
+    padding: 10px; /* Padding inside the box */
+    background-color: #f0f0f0; /* Light grey background, adjust as needed */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
+    z-index: 1000; /* Ensure it sits above other content */
+    width: auto; /* Auto width based on content, or specify a width */
+    min-width: 150px; /* Minimum width, adjust as needed */
+    height: auto; /* Height based on content */
+}
