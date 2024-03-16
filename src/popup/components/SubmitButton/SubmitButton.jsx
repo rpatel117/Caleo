@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState} from "react";
 import AppContext from "../../context/AppContext";
 
 const SubmitButton = () => {
   const { inputValue } = useContext(AppContext);
+  const [jwtToken, setjwtToken] = useState('');
+
+  useEffect(() => {
+    chrome.storage.local.get(['authData'], function(items) {
+      setjwtToken(items.authData.session.access_token);
+    });
+  }, []);
 
   const postToAPI = async (payload) => {
-    const jwtToken = localStorage.getItem("jwtToken");
-    if (!jwtToken) {
-      console.error("JWT token not found. Please login first.");
-      return;
-    }
+
+    
     try {
       const response = await fetch(
         "https://xamwretecomrblvjcdkx.supabase.co/functions/v1/openaicall",

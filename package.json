@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --mode development --watch",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "script": "webpack serve --mode development --open"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^2.5.0",
     "@stripe/stripe-js": "^3.0.2",
+    "@supabase/auth-helpers-react": "^0.4.2",
     "@supabase/supabase-js": "^2.39.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
