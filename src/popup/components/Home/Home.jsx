@@ -5,22 +5,32 @@ import "./Home.css"; // Ensure this matches the name of your CSS file
 
 
 
-
-
 const Home = () => {
   const [isLogin, setIsLogin] = useState(true); // This determines the initial view
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useState(false);
   const navigate = useNavigate();
+  
+
+  // Import the functions you need from the SDKs you need
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+// Initialize Firebase
+
 
   useEffect(() => {
     // Listen for changes in authentication state
-    const onAuthStateChange = () => {
+    /*const onAuthStateChange = () => {
       chrome.storage.local.get(['authData', 'authError'], function(result) {
         if (result.authData) {
           // Successful authentication, navigate to the target page
-          navigate("/CaleoMain");
+          navigate("/Calendar");
           // Optionally, clear the storage
         }
         if (result.authError) {
@@ -35,15 +45,22 @@ const Home = () => {
     return () => {
       // Cleanup listener when component unmounts
       chrome.storage.onChanged.removeListener(onAuthStateChange);
-    };
-  }, [auth]);
+    }; */
+    
+  }, []);
 
   const toggleForm = () => setIsLogin(!isLogin);
 
   const GoogleLogin = () => {
     // Send a message to the background script to start the OAuth flow
-    setAuth(true);
-    chrome.runtime.sendMessage({ action: "startOAuth" });
+    chrome.runtime.sendMessage({action: "authenticate"}, response => {
+      if (response.token) {
+        console.log("Authentication successful. Token:", response.token);
+        // You can now use the token to make authenticated requests
+      } else {
+        console.error("Authentication failed:", response.error);
+      }
+    });
   };
 
 

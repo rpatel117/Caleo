@@ -9,6 +9,7 @@ import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSession } from '@supabase/auth-helpers-react'
 import { supabase } from "./api/supabase";
+import Calendar from "./components/Calendar/Calendar";
 
 const CaleoMain = () => {
   return (
@@ -41,6 +42,7 @@ const Popup = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/CaleoMain" element={<CaleoMain />} />
+          <Route path="/Calendar" element={<Calendar />} />
         </Routes>
       </div>
     </Router>

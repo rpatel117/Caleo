@@ -10,6 +10,7 @@
     "identity",
     "storage"
   ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlZ+6Lc8Z+nf97EMwqWBaECKoADtm1rJGEHbBkr/nKacTi5WxylZQwz9Qd+cUy22noEX3WcYM/yZtAZGTuSzUjVCCEqOYHt+31YS/h9FUzFD5JFXitkBurJJ9KuOkHlmwGPReCcmR3yu3rVyjtSJYP5Sew/3moesqkEh7ME4t9BrBpQBOvU97aQoOIQUVlOJedfd627sy2ULMtchn/sPUPzRu1eqcYSHPMWGr7zej37Eo/q3XYa+hmVh/MtvXohUeAVj8IacIHpXpeGrrK+8gIA0dFyEQX4SqAcAgxOzHnWiTZq06Zcu7h/Kf1t31FOAYkkL4BQTTTDBan4Zqnei+8wIDAQAB",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -20,10 +21,15 @@
     "16": "assets/caleo.png"
   },
   "oauth2": {
-    "client_id": "685173837261-trqqgn9lkr4ud2jun4irdrtdohgoul8u.apps.googleusercontent.com",
-    "scopes": ["openid", "email", "profile"]
+    "client_id": "685173837261-otgslfn6s4k4hpi2h5fcj1nmf6q3ei8c.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "email",
+      "profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
   },
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
+    "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
   }
 }
